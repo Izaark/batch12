@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^usuarios/', include("usuario.urls", namespace='Usuario')),
     url(r'^adopcciones/', include("adoptante.urls",namespace='adoptante')),
     url(r'^infantes/', include("infante.urls",namespace='infante')),
+    
 ]
