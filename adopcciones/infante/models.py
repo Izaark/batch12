@@ -19,8 +19,8 @@ class Infante(models.Model):
     date = models.DateField()
 
     #Reltions
-    persona = models.ForeignKey(Persona, null=False,blank=False, on_delete=models.CASCADE)
-    educacion = models.ManyToManyField(Educacion)
+    persona = models.ForeignKey(Persona, null=False,blank=False, on_delete=models.CASCADE, related_name='persona_infante')
+    educacion = models.ManyToManyField(Educacion, related_name='educacion_infante')
 
 
     def __str__(self):
