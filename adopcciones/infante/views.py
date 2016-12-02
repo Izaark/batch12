@@ -3,6 +3,10 @@ from django.core.urlresolvers import reverse_lazy
 from .forms import InfanteForm
 from .models import Infante
 
+def index(request):
+
+	return render(request,"index.html")
+	
 class InfanteListView(ListView):
     model = Infante
     template_name = "infante/infante_list.html"

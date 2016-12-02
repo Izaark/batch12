@@ -140,6 +140,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ('static',)
 AUTH_USER_MODEL = 'usuario.Usuario'
+LOGIN_REDIRECT_URL = reverse_lazy('adoptante:solicitud_listar')
 JWT_AUTH = {
     
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),

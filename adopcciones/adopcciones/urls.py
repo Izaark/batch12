@@ -5,8 +5,8 @@ from adopcciones import urls_api
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-	# url(r'^login/',login,{'template_name':'index.html'}, name='login'),
-	# url(r'^logout/',logout_then_login, name='logout'),
+	url(r'^login/',login,{'template_name':'index.html'}, name='login'),
+	url(r'^logout/',logout_then_login, name='logout'),
  	url(r'^api/v1/', include(urls_api)),
     
     url(r'^direcciones/', include("direccion.urls", namespace='direcciones')),

@@ -3,6 +3,7 @@ from .views import *
 
 
 urlpatterns = [
+	url(r'^hola/', index,name='index'),
     url(r'^nuevo/', InfanteCreateView.as_view(), name='infante_crear'),
     url(r'^lista/', InfanteListView.as_view(), name='infante_listar'),
     url(r'^editar/(?P<pk>\d+)/$',InfanteUpdateView.as_view(), name='infante_editar'),
