@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>No. Solicitud</td>
+			<td>Adoptante</td>
+			<td>Razones</td>
+			<td>Acciones</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for solicitud in object_list %}
+		<tr>
+			<td>{{ solicitud.id }}</td>
+			<td>{{ solicitud.person.name }} {{solicitud.person.last_name}}</td>
+			<td>{{ solicitud.razones }}</td>
+			
+			<td>
+				<a class="btn btn-primary" href="#">Editar</a>
+				<a class="btn btn-danger" href="#">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay registros de solicitudes</h1>
+		{% endif %}
+	</tbody>
+</table>
+<ul class="pager">
+	<li>
+		<a href="#">Previus</a>
+	</li>
+	<li>
+		<a href="#">Next</a>
+	</li>
+</ul>
+
+{% endblock%}

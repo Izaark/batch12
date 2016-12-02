@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block header %}
+	<h3>Registros</h3>
+{% endblock header %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Nombre</td>
+			<td>Sexo</td>
+			<td>Edad</td>
+			<td>Ingreso al instituto</td>
+			<td>Adoptante</td>
+			<td>Acciones</td>
+		
+		</tr>
+		
+	</thead>
+	<tbody>
+	{% if object_list %}
+	{% for infante in object_list %}
+	<tr>
+		<td>{{infante.id}}</td>
+		<td>{{infante.name}}</td>
+		<td>{{infante.sex}}</td>
+		<td>{{infante.age}} años</td>
+		<td>{{infante.date}}</td>
+		<td>{{infante.persona.name}}, contacto: {{infante.persona.email}}</td>
+		<td>
+			<a class="btn btn-primary" href="{% url 'infante:infante_editar' infante.id%}">Editar</a>
+			<a class="btn btn-danger" href="{% url 'infante:infante_eliminar' infante.id%}">Eliminar</a>
+		</td>
+	</tr> 
+		
+	{% endfor %}
+		{% else %}
+		<h3>No haY mascotas</h3>
+	{% endif %}
+	
+	</tbody>
+</table>	
+<ul class="pager">
+	<li>
+	{% if page_obj.has_previous %}
+       	 <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+		{% endif %}
+        </li>
+	<li>
+		{% if page_obj.has_next %}
+     	 <a href="?page={{ page_obj.next_page_number }}">Next</a> 
+    	{% endif %}
+	</li>
+</ul>
+	{% endblock content %}
